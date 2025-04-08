@@ -134,3 +134,10 @@ STATIC_URL = "static/"
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
+
+# Add the frontend's origin to CORS_ALLOWED_ORIGINS
+CORS_ALLOWED_ORIGINS = [
+    "https://friendly-space-doodle-jq995746jg4cp49j-3000.app.github.dev",
+    "http://localhost:3000",
+    "http://127.0.0.1:3000"
+]

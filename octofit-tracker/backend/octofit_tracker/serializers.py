@@ -10,14 +10,12 @@ class ObjectIdField(serializers.Field):
         return ObjectId(data)
 
 class UserSerializer(serializers.ModelSerializer):
-    _id = ObjectIdField()
-
     class Meta:
         model = User
-        fields = '__all__'
+        fields = ['id', 'username', 'email', 'password']  # Use 'id' instead of '_id'
 
 class TeamSerializer(serializers.ModelSerializer):
-    _id = ObjectIdField()
+    id = ObjectIdField()
     members = UserSerializer(many=True)
 
     class Meta:
@@ -25,23 +23,19 @@ class TeamSerializer(serializers.ModelSerializer):
         fields = '__all__'
 
 class ActivitySerializer(serializers.ModelSerializer):
-    _id = ObjectIdField()
-    user = ObjectIdField()
-
     class Meta:
         model = Activity
-        fields = '__all__'
+        fields = ['id', 'user', 'activity_type', 'duration']  # Use 'id' instead of '_id'
 
 class LeaderboardSerializer(serializers.ModelSerializer):
-    _id = ObjectIdField()
-    user = UserSerializer()  # Expand the user object
+    user = UserSerializer()  # Use UserSerializer to include user details
 
     class Meta:
         model = Leaderboard
-        fields = '__all__'
+        fields = ['id', 'user', 'score']
 
 class WorkoutSerializer(serializers.ModelSerializer):
-    _id = ObjectIdField()
+    id = ObjectIdField()
 
     class Meta:
         model = Workout

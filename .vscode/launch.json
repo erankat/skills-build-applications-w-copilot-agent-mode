@@ -2,12 +2,27 @@
     "version": "0.2.0",
     "configurations": [
         {
-            "name": "Run Django Server",
-            "type": "python",
             "request": "launch",
+            "name": "Launch Django Backend",
+            "type": "python",
             "program": "${workspaceFolder}/octofit-tracker/backend/manage.py",
+            "cwd": "${workspaceFolder}/octofit-tracker/backend",
             "args": ["runserver", "0.0.0.0:8000"],
             "django": true
+        },
+        {
+            "type": "node",
+            "request": "launch",
+            "name": "Launch React Frontend",
+            "program": "${workspaceFolder}/octofit-tracker/frontend/node_modules/react-scripts/scripts/start.js",
+            "cwd": "${workspaceFolder}/octofit-tracker/frontend",
+            "protocol": "inspector",
+            "runtimeExecutable": "node",
+            "console": "integratedTerminal",
+            "env": {
+              "BROWSER": "none"
+            }
         }
+      
     ]
 }

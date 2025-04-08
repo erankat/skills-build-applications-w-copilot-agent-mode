@@ -1,0 +1,18 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "type": "node",
+      "request": "launch",
+      "name": "Launch React App",
+      "program": "${workspaceFolder}/frontend/node_modules/react-scripts/scripts/start.js",
+      "cwd": "${workspaceFolder}/frontend",
+      "protocol": "inspector",
+      "runtimeExecutable": "node",
+      "console": "integratedTerminal",
+      "env": {
+        "BROWSER": "none"
+      }
+    }
+  ]
+}
