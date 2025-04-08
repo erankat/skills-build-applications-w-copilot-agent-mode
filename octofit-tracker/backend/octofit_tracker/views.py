@@ -1,18 +1,14 @@
 from rest_framework import viewsets, status
-from rest_framework.decorators import api_view
 from rest_framework.response import Response
 from .serializers import UserSerializer, TeamSerializer, ActivitySerializer, LeaderboardSerializer, WorkoutSerializer
 from .models import User, Team, Activity, Leaderboard, Workout
+from django.http import JsonResponse
 
-@api_view(['GET'])
-def api_root(request, format=None):
-    base_url = 'http://localhost:8000/'
-    return Response({
-        'users': base_url + 'api/users/',
-        'teams': base_url + 'api/teams/',
-        'activities': base_url + 'api/activities/',
-        'leaderboard': base_url + 'api/leaderboard/',
-        'workouts': base_url + 'api/workouts/'
+def api_root(request):
+    return JsonResponse({
+        "message": "Welcome to the Octofit API!",
+        "codespace_url": "https://friendly-space-doodle-jq995746jg4cp49j-8000.app.github.dev",
+        "localhost_url": "http://localhost:8000"
     })
 
 class UserViewSet(viewsets.ModelViewSet):
